@@ -5,7 +5,7 @@ import json
 from xblock.field_data import DictFieldData
 from mock import Mock
 
-from poll.poll import PollBlock, SurveyBlock
+from poll_remake.poll_remake import PollBlock, SurveyBlock
 from ..utils import MockRuntime, make_request
 
 

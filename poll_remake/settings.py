@@ -58,13 +58,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'poll/translations'),
+    os.path.join(BASE_DIR, 'poll_remake/translations'),
 ]
 
 # statici18n
 # http://django-statici18n.readthedocs.io/en/latest/settings.html
 
-with open(os.path.join(BASE_DIR, 'poll/translations/config.yaml'), 'r') as locale_config_file:
+with open(os.path.join(BASE_DIR, 'poll_remake/translations/config.yaml'), 'r') as locale_config_file:
     locale_config = yaml.load(locale_config_file)
 
     LANGUAGES = [

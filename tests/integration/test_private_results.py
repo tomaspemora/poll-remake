@@ -25,7 +25,7 @@ from __future__ import absolute_import
 from ddt import ddt, unpack, data
 from selenium.common.exceptions import NoSuchElementException
 
-from poll.poll import PollBase
+from poll_remake.poll_remake import PollBase
 from .base_test import PollBaseTest, DEFAULT_SURVEY_NAMES, DEFAULT_POLL_NAMES
 
 

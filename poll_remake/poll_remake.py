@@ -62,9 +62,9 @@ except ImportError:
 class ResourceMixin(XBlockWithSettingsMixin, ThemableXBlockMixin):
     loader = ResourceLoader(__name__)
 
-    block_settings_key = 'poll'
+    block_settings_key = 'poll_remake'
     default_theme_config = {
-        'package': 'poll',
+        'package': 'poll_remake',
         'locations': ["public/css/themes/lms.css"]
     }
 
