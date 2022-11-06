@@ -768,11 +768,11 @@ class PollBlock(PollBase, CSVExportMixin):
         return [
             ("Default Poll",
              """
-             <poll />
+             <poll_remake />
              """),
             ("Customized Poll",
              """
-             <poll tally="{'long': 20, 'short': 29, 'not_saying': 15, 'longer' : 35}"
+             <poll_remake tally="{'long': 20, 'short': 29, 'not_saying': 15, 'longer' : 35}"
                  question="## How long have you been studying with us?"
                  answers='[["longt", {"label": "A very long time", "img": null, "img_alt": null}],
                            ["short", {"label": "Not very long", "img": null, "img_alt": null}],
@@ -1294,11 +1294,11 @@ class SurveyBlock(PollBase, CSVExportMixin):
         return [
             ("Default Survey",
              """
-             <survey />
+             <survey_remake />
              """),
             ("Survey Functions",
              """
-             <survey tally='{"q1": {"sa": 5, "a": 5, "n": 3, "d": 2, "sd": 5},
+             <survey_remake tally='{"q1": {"sa": 5, "a": 5, "n": 3, "d": 2, "sd": 5},
                              "q2": {"sa": 3, "a": 2, "n": 3, "d": 10, "sd": 2},
                              "q3": {"sa": 2, "a": 7, "n": 1, "d": 4, "sd": 6},
                              "q4": {"sa": 1, "a": 2, "n": 8, "d": 4, "sd": 5}}'
@@ -1314,12 +1314,12 @@ class SurveyBlock(PollBase, CSVExportMixin):
             ("Survey Multiple",
              """
              <vertical_demo>
-                 <survey tally='{"q1": {"sa": 5, "a": 5, "n": 3, "d": 2, "sd": 5}}'
+                 <survey_remake tally='{"q1": {"sa": 5, "a": 5, "n": 3, "d": 2, "sd": 5}}'
                      questions='[["q1", {"label": "I feel like this test will pass.", "img": null, "img_alt": null}]]'
                      answers='[["sa", "Strongly Agree"], ["a", "Agree"], ["n", "Neutral"],
                                ["d", "Disagree"], ["sd", "Strongly Disagree"]]'
                      feedback="### Thank you&#10;&#10;for running the tests."/>
-                 <survey tally='{"q1": {"sa": 5, "a": 5, "n": 3, "d": 2, "sd": 5}}'
+                 <survey_remake tally='{"q1": {"sa": 5, "a": 5, "n": 3, "d": 2, "sd": 5}}'
                      questions='[["q1", {"label": "Most likely to win the World Cup.", "img": null, "img_alt": null}]]'
                      answers='[["sa", "South Africa"], ["a", "Angola"], ["n", "Netherlands"],
                                ["d", "Deutschland"], ["sd", "Someone different"]]'
