@@ -466,7 +466,7 @@ class PollBlock(PollBase, CSVExportMixin):
                  scope=Scope.user_state_summary,
                  help=_("Total tally of answers from students."))
     choice = String(scope=Scope.user_state, help=_("The student's answer"))
-    event_namespace = 'xblock.poll'
+    event_namespace = 'xblock.poll_remake'
 
     def clean_tally(self):
         """
