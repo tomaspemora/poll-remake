@@ -256,7 +256,7 @@ function PollUtil (runtime, element, pollType) {
         self.answers.unbind("change.enableSubmit");
     };
 
-    var init_map = {'poll': self.pollInit, 'survey': self.surveyInit};
+    var init_map = { 'poll_remake': self.pollInit, 'survey_remake': self.surveyInit};
     this.init().done(function(data) {
         // If the submit button doesn't exist, the user has already
         // selected a choice. Render results instead of initializing machinery.
@@ -278,9 +278,9 @@ function PollUtil (runtime, element, pollType) {
 }
 
 function PollBlock(runtime, element) {
-    new PollUtil(runtime, element, 'poll');
+    new PollUtil(runtime, element, 'poll_remake');
 }
 
 function SurveyBlock(runtime, element) {
-    new PollUtil(runtime, element, 'survey');
+    new PollUtil(runtime, element, 'survey_remake');
 }

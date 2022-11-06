@@ -139,7 +139,7 @@ function PollEditUtil(runtime, element, pollType) {
 
     // This object is used to swap out values which differ between Survey and Poll blocks.
     this.mappings = {
-        'poll': {
+        'poll_remake': {
             'buttons': {
                 '#poll-add-answer': {
                     'template': self.makeNew({'image': true, 'noun': 'answer'}),
@@ -149,7 +149,7 @@ function PollEditUtil(runtime, element, pollType) {
             'onLoad': [{'url': self.loadAnswers, 'function': self.displayAnswers}],
             'gather': [{'prefix': 'answer', 'field': 'answers'}]
         },
-        'survey': {
+        'survey_remake': {
             'buttons': {
                 '#poll-add-answer': {
                     'template': self.makeNew({'image': false, 'noun': 'answer'}),
@@ -259,9 +259,9 @@ function PollEditUtil(runtime, element, pollType) {
 }
 
 function PollEdit(runtime, element) {
-    new PollEditUtil(runtime, element, 'poll');
+    new PollEditUtil(runtime, element, 'poll_remake');
 }
 
 function SurveyEdit(runtime, element) {
-    new PollEditUtil(runtime, element, 'survey');
+    new PollEditUtil(runtime, element, 'survey_remake');
 }
