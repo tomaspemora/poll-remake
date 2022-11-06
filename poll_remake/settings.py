@@ -79,5 +79,5 @@ STATICI18N_NAMESPACE = 'PollXBlockI18N'
 STATICI18N_PACKAGES = (
     'poll_remake',
 )
-STATICI18N_ROOT = 'poll/public/js'
+STATICI18N_ROOT = 'poll_remake/public/js'
 STATICI18N_OUTPUT_DIR = 'translations'

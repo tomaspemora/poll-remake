@@ -70,7 +70,7 @@ setup(
     entry_points={
         'xblock.v1': [
             'poll_remake = poll_remake:PollBlock',
-            'survey = poll_remake:SurveyBlock',
+            'survey_remake = poll_remake:SurveyBlock',
         ]
     },
     package_data=package_data("poll_remake", ["static", "public", "translations"]),
