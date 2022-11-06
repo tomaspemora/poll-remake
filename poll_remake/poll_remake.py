@@ -902,7 +902,7 @@ class SurveyBlock(PollBase, CSVExportMixin):
                 'img': None,
                 'img_alt': None
             }),
-            ('submission_date', {'date':datetime.datetime.now()})
+            ('submission_date', {'date':datetime.datetime.now()}),
             ('learn', {'label': _('Do you think you will learn a lot?'), 'img': None, 'img_alt': None}),
         ],
         scope=Scope.settings, help=_("Questions for this Survey")
