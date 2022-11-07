@@ -21,4 +21,4 @@
 # "AGPLv3".  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from .poll_remake import PollBlock, SurveyBlock
+from .poll_remake import PollXBlock, SurveyXBlock

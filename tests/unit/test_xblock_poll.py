@@ -5,11 +5,11 @@ import json
 from xblock.field_data import DictFieldData
 from mock import Mock
 
-from poll_remake.poll_remake import PollBlock, SurveyBlock
+from poll_remake.poll_remake import PollXBlock, SurveyXBlock
 from ..utils import MockRuntime, make_request
 
 
-class TestPollBlock(unittest.TestCase):
+class TestPollXBlock(unittest.TestCase):
     """
     Tests for XBlock Poll.
     """
@@ -17,7 +17,7 @@ class TestPollBlock(unittest.TestCase):
         """
         Test case setup
         """
-        super(TestPollBlock, self).setUp()
+        super(TestPollXBlock, self).setUp()
         self.runtime = MockRuntime()
         self.poll_data = {
             'display_name': 'My Poll',
@@ -33,7 +33,7 @@ class TestPollBlock(unittest.TestCase):
             'private_results': False,
             'feedback': 'My Feedback',
         }
-        self.poll_block = PollBlock(
+        self.poll_block = PollXBlock(
             self.runtime,
             DictFieldData(self.poll_data),
             None
@@ -129,7 +129,7 @@ class TestPollBlock(unittest.TestCase):
                 'content_type': 'Poll'
             }
         )
-class TestSurveyBlock(unittest.TestCase):
+class TestSurveyXBlock(unittest.TestCase):
     """
     Tests for XBlock Survey.
     """
@@ -137,7 +137,7 @@ class TestSurveyBlock(unittest.TestCase):
         """
         Test case setup
         """
-        super(TestSurveyBlock, self).setUp()
+        super(TestSurveyXBlock, self).setUp()
         self.runtime = MockRuntime()
         self.survery_data = {
             'display_name': 'My Survey',
@@ -157,7 +157,7 @@ class TestSurveyBlock(unittest.TestCase):
             'feedback': 'My Feedback',
             'block_name': 'My Block Name',
         }
-        self.survey_block = SurveyBlock(
+        self.survey_block = SurveyXBlock(
             self.runtime,
             DictFieldData(self.survery_data),
             None

@@ -1,4 +1,4 @@
-/* Javascript for PollBlock. */
+/* Javascript for PollXBlock. */
 
 function PollUtil (runtime, element, pollType) {
     var self = this;
@@ -31,7 +31,7 @@ function PollUtil (runtime, element, pollType) {
     };
 
     this.pollInit = function(){
-        // Initialization function for PollBlocks.
+        // Initialization function for PollXBlocks.
         var selector = 'input[name=choice]:checked';
         var radio = $(selector, element);
         self.submit.click(function () {
@@ -277,10 +277,10 @@ function PollUtil (runtime, element, pollType) {
     });
 }
 
-function PollBlock(runtime, element) {
+function PollXBlock(runtime, element) {
     new PollUtil(runtime, element, 'poll_remake');
 }
 
-function SurveyBlock(runtime, element) {
+function SurveyXBlock(runtime, element) {
     new PollUtil(runtime, element, 'survey_remake');
 }
