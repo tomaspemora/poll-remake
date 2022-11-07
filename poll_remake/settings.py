@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'statici18n',
+    
     'poll_remake',
 )
 
@@ -45,11 +45,11 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -57,27 +57,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'poll_remake/translations'),
-]
 
-# statici18n
-# http://django-statici18n.readthedocs.io/en/latest/settings.html
-
-with open(os.path.join(BASE_DIR, 'poll_remake/translations/config.yaml'), 'r') as locale_config_file:
-    locale_config = yaml.load(locale_config_file)
-
-    LANGUAGES = [
-        (code, code,)
-        for code in locale_config['locales'] + locale_config['dummy_locales']
-    ]
-
-STATICI18N_DOMAIN = 'textjs'
-
-# `PollI18N` might collide with other modules, using `PollXBlockI18N` to be more explicit
-STATICI18N_NAMESPACE = 'PollXBlockI18N'
-STATICI18N_PACKAGES = (
-    'poll_remake',
-)
-STATICI18N_ROOT = 'poll_remake/public/js'
-STATICI18N_OUTPUT_DIR = 'translations'

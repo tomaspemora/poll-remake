@@ -73,5 +73,5 @@ setup(
             'survey_remake = poll_remake:SurveyXBlock',
         ]
     },
-    package_data=package_data("poll_remake", ["static", "public", "translations"]),
+    package_data=package_data("poll_remake", ["static", "public"]),
 )
