@@ -572,6 +572,7 @@ class PollBlock(PollBase, CSVExportMixin):
             'display_name': self.display_name,
             'can_vote': self.can_vote(),
             'max_submissions': self.max_submissions,
+            'date': datetime.datetime.now(),
             'submissions_count': self.submissions_count,
             'can_view_private_results': self.can_view_private_results(),
             # a11y: Transfer block ID to enable creating unique ids for questions and answers in the template
@@ -902,7 +903,7 @@ class SurveyBlock(PollBase, CSVExportMixin):
                 'img': None,
                 'img_alt': None
             }),
-            ('submission_date', {'date':datetime.datetime.now()}),
+            # ('submission_date', {'label':_('DATE'), 'img':None, 'img_alt':None, }),
             ('learn', {'label': _('Do you think you will learn a lot?'), 'img': None, 'img_alt': None}),
         ],
         scope=Scope.settings, help=_("Questions for this Survey")
@@ -987,6 +988,7 @@ class SurveyBlock(PollBase, CSVExportMixin):
             'choices': self.get_choices(),
             'tally': self.tally,
             'submissions_count': self.submissions_count,
+            'date': datetime.datetime.now()
         }
 
         return Response(
