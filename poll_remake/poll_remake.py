@@ -157,6 +157,7 @@ class CSVExportMixin(object):
     def _get_export_status(self):
         self.check_pending_export()
         return {
+            'date': datetime.datetime.now(),
             'export_pending': bool(self.active_export_task_id),
             'last_export_result': self.last_export_result,
             'download_url': self.download_url_for_last_report,
@@ -442,7 +443,7 @@ class PollBase(XBlock, ResourceMixin, PublishEventMixin):
 
 @XBlock.wants('settings')
 @XBlock.needs('i18n')
-class PollBlock(PollBase, CSVExportMixin):
+class PollXBlock(PollBase, CSVExportMixin):
     """
     Poll XBlock. Allows a teacher to poll users, and presents the results so
     far of the poll to the user when finished.
@@ -551,7 +552,7 @@ class PollBlock(PollBase, CSVExportMixin):
     @XBlock.supports("multi_device")  # Mark as mobile-friendly
     def student_view(self, context=None):
         """
-        The primary view of the PollBlock, shown to students
+        The primary view of the PollXBlock, shown to students
         when viewing courses.
         """
         if not context:
@@ -588,7 +589,7 @@ class PollBlock(PollBase, CSVExportMixin):
             template="public/html/poll.html",
             css="public/css/poll.css",
             js="public/js/poll.js",
-            js_init="PollBlock"
+            js_init="PollXBlock"
         )
 
     def student_view_data(self, context=None):
@@ -848,7 +849,7 @@ class PollBlock(PollBase, CSVExportMixin):
         # return key/value fields in a Python dict object
         # values may be numeric / string or dict
         # default implementation is an empty dict
-        xblock_body = super(PollBlock, self).index_dictionary()
+        xblock_body = super(PollXBlock, self).index_dictionary()
         answers = {
             "option_{}".format(answer_i): remove_markdown_and_html_tags(answer[1]['label'])
             for answer_i, answer in enumerate(self.answers)
@@ -879,7 +880,7 @@ class PollBlock(PollBase, CSVExportMixin):
 
 @XBlock.wants('settings')
 @XBlock.needs('i18n')
-class SurveyBlock(PollBase, CSVExportMixin):
+class SurveyXBlock(PollBase, CSVExportMixin):
     # pylint: disable=too-many-instance-attributes
 
     display_name = String(default=_('Survey'))
@@ -928,7 +929,7 @@ class SurveyBlock(PollBase, CSVExportMixin):
     @XBlock.supports("multi_device")  # Mark as mobile-friendly
     def student_view(self, context=None):
         """
-        The primary view of the SurveyBlock, shown to students
+        The primary view of the SurveyXBlock, shown to students
         when viewing courses.
         """
         if not context:
@@ -962,7 +963,7 @@ class SurveyBlock(PollBase, CSVExportMixin):
             template="public/html/survey.html",
             css="public/css/poll.css",
             js="public/js/poll.js",
-            js_init="SurveyBlock"
+            js_init="SurveyXBlock"
         )
 
     def student_view_data(self, context=None):
@@ -1404,7 +1405,7 @@ class SurveyBlock(PollBase, CSVExportMixin):
         # return key/value fields in a Python dict object
         # values may be numeric / string or dict
         # default implementation is an empty dict
-        xblock_body = super(SurveyBlock, self).index_dictionary()
+        xblock_body = super(SurveyXBlock, self).index_dictionary()
 
         questions = {
             "question_{}".format(question_i): remove_markdown_and_html_tags(question[1]['label'])
